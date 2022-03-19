@@ -5,6 +5,14 @@ Class {
 }
 
 { #category : #accessing }
+SjmTagTime class >> last_seven_days: aLogFileString [
+	^ self new 
+		logFile: aLogFileString;
+		since: (Duration days: 7);
+		yourself.
+]
+
+{ #category : #accessing }
 SjmTagTime >> initialize [
 	super initialize.
 	template := (MacOSResolver new home / 'repos' / 'TagTime' / 'cntpings', 'pl') pathString, ' -v {logFile} -s {fromDate}'.
