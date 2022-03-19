@@ -13,7 +13,7 @@ SjmTagTimeOutput >> fromRawOutput: aString [
 	pieIx := aString findString: 'PIE'.
 	tags := (aString copyFrom: pieIx + 4 to: (aString size)) trimBoth.
 	tags := tags splitOn: Character lf.
-	tags := tags collect: [:item | SjmTagTimeOutput fromString: item  ].
+	tags := tags collect: [:item | SjmTagTimeTag fromString: item  ].
 	^ self
 ]
 
