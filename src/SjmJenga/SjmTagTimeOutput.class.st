@@ -21,7 +21,7 @@ SjmTagTimeOutput >> fromRawOutput: aString [
 SjmTagTimeOutput >> gtPieChart: aView [
 	<gtView>
 	^ aView explicit
-          title: 'Dashboard' translated;
+          title: 'Pie' translated;
           priority: 1;
           stencil: [ 
           	
@@ -63,7 +63,7 @@ SjmTagTimeOutput >> gtPieChart: aView [
 				chart addChild: element.
 			].
 
-			^ chart.
+			 chart.
            ]
 ]
 
