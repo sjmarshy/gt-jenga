@@ -6,10 +6,13 @@ Class {
 
 { #category : #accessing }
 SjmTagTime class >> last_seven_days: aLogFileString [
-	^ self new 
+	| res |
+	res := self new 
 		logFile: aLogFileString;
 		since: (Duration days: 7);
 		yourself.
+		
+	^ SjmTagTimeOutput new fromRawOutput: res output.
 ]
 
 { #category : #accessing }
