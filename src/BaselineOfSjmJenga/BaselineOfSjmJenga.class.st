@@ -9,7 +9,10 @@ BaselineOfSjmJenga >> baseline: spec [
 	
 	<baseline>
 	spec for: #common do: [
-		spec package: 'SjmJenga'
+		spec baseline: 'ComputerWorld' with: [
+			spec repository: 'github://seandenigris/Computer-World'.
+		].
+		spec package: 'SjmJenga'.
 	]
 	"spec for: #'common' do: [
 	
