@@ -11,9 +11,7 @@ SjmTagTimeLogParser class >> cacheId [
 
 { #category : #generated }
 SjmTagTimeLogParser class >> definitionComment [
-"%root Program;
-%prefix SjmTagTime;
-%suffix Node;<timestamp>
+"<timestamp>
 	: [0-9]+
 	;
 <whitespace>
