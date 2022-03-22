@@ -3,6 +3,6 @@ Run the following:
 ```language=text
 Metacello new
 	baseline: 'SjmJenga';
-	repository: 'git@git.sr.ht:~sjm/gt-jenga:main';
+	repository: 'github://sjmarshy/gt-jenga:main';
 	load.
 ```
