@@ -1,23 +1,23 @@
 Class {
-	#name : #SjmTagTimeLogScanner,
+	#name : #SjmTagTimeScanner,
 	#superclass : #SmaCCScanner,
 	#category : #'SjmJenga-tag-time'
 }
 
 { #category : #generated }
-SjmTagTimeLogScanner >> emptySymbolTokenId [
+SjmTagTimeScanner >> emptySymbolTokenId [
 
 	^ 15
 ]
 
 { #category : #generated }
-SjmTagTimeLogScanner >> errorTokenId [
+SjmTagTimeScanner >> errorTokenId [
 
 	^ 16
 ]
 
 { #category : #generated }
-SjmTagTimeLogScanner >> scan1 [
+SjmTagTimeScanner >> scan1 [
 
 	[ 
 	self recordMatch: #( 3 ).
@@ -31,7 +31,7 @@ SjmTagTimeLogScanner >> scan1 [
 ]
 
 { #category : #generated }
-SjmTagTimeLogScanner >> scan2 [
+SjmTagTimeScanner >> scan2 [
 
 	self step.
 	(currentCharacter == $" or: [ 
@@ -43,7 +43,7 @@ SjmTagTimeLogScanner >> scan2 [
 ]
 
 { #category : #generated }
-SjmTagTimeLogScanner >> scanForToken [
+SjmTagTimeScanner >> scanForToken [
 
 	self step.
 	currentCharacter == $[ ifTrue: [ 
@@ -55,12 +55,12 @@ SjmTagTimeLogScanner >> scanForToken [
 				^ self recordAndReportMatch: #( 4 ) ].
 			true ] whileTrue ].
 		^ self reportLastMatch ].
-	currentCharacter isDigit ifTrue: [ 
+	(currentCharacter between: $0 and: $9) ifTrue: [ 
 		[ 
 		self recordMatch: #( 1 3 ).
 		self step.
 		currentCharacter == $- ifTrue: [ ^ self scan2 ].
-		currentCharacter isDigit ] whileTrue.
+		currentCharacter between: $0 and: $9 ] whileTrue.
 		(('":' includes: currentCharacter) or: [ 
 			 (currentCharacter between: $A and: $Z) or: [ 
 				 currentCharacter between: $a and: $z ] ]) ifTrue: [ ^ self scan1 ].
@@ -80,7 +80,7 @@ SjmTagTimeLogScanner >> scanForToken [
 ]
 
 { #category : #generated }
-SjmTagTimeLogScanner >> tokenActions [
+SjmTagTimeScanner >> tokenActions [
 
 	^ #( nil #whitespace )
 ]
