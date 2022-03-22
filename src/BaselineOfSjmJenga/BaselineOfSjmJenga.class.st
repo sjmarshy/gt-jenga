@@ -6,13 +6,13 @@ Class {
 
 { #category : #baseline }
 BaselineOfSjmJenga >> baseline: spec [
-	
 	<baseline>
 	spec for: #common do: [
 		spec baseline: 'ComputerWorld' with: [
 			spec repository: 'github://seandenigris/Computer-World'.
 		].
-		spec package: 'SjmJenga'.
+		spec package: 'SjmJenga' with: [ 
+			spec requires: #(ComputerWorld)].
 	]
 	"spec for: #'common' do: [
 	
